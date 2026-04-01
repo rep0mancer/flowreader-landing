@@ -150,6 +150,17 @@
         
         .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
         
+        .hero-screenshot {
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .hero-screenshot .phone-mockup {
+            width: 260px;
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.05), 0 40px 80px rgba(0,0,0,0.5), 0 0 80px var(--accent-glow);
+        }
+        
         .btn {
             display: inline-flex;
             align-items: center;
@@ -699,6 +710,15 @@
             <a href="#screenshots" class="btn btn-primary">App ansehen</a>
             <a href="#how-it-works" class="btn btn-secondary">Mehr erfahren</a>
         </div>
+        
+        <div class="hero-screenshot">
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <div class="phone-notch"></div>
+                    <img src="screenshot-hero.png" alt="FlowReader App" style="width:100%;height:100%;object-fit:cover;border-radius:34px;">
+                </div>
+            </div>
+        </div>
     </section>
     
     <section class="screenshots" id="screenshots">
@@ -708,52 +728,12 @@
         </div>
         
         <div class="screenshots-grid">
-            <!-- Library -->
+            <!-- Library (Real Screenshot) -->
             <div>
                 <div class="phone-mockup">
                     <div class="phone-screen">
                         <div class="phone-notch"></div>
-                        <div class="screen-content">
-                            <div class="library-header">
-                                <div class="library-title">Bibliothek</div>
-                                <div class="library-icon">⚙️</div>
-                            </div>
-                            <div class="library-items">
-                                <div class="library-item">
-                                    <div class="library-item-icon">📄</div>
-                                    <div class="library-item-info">
-                                        <div class="library-item-title">Der Prozess</div>
-                                        <div class="library-item-meta">2.847 Wörter • 12 Min</div>
-                                    </div>
-                                    <svg class="progress-ring" viewBox="0 0 32 32">
-                                        <circle class="progress-ring-circle" cx="16" cy="16" r="12"/>
-                                        <circle class="progress-ring-progress" cx="16" cy="16" r="12" stroke-dasharray="75" stroke-dashoffset="19"/>
-                                    </svg>
-                                </div>
-                                <div class="library-item">
-                                    <div class="library-item-icon">🔗</div>
-                                    <div class="library-item-info">
-                                        <div class="library-item-title">AI-Trends 2026</div>
-                                        <div class="library-item-meta">1.203 Wörter • 5 Min</div>
-                                    </div>
-                                    <svg class="progress-ring" viewBox="0 0 32 32">
-                                        <circle class="progress-ring-circle" cx="16" cy="16" r="12"/>
-                                        <circle class="progress-ring-progress" cx="16" cy="16" r="12" stroke-dasharray="75" stroke-dashoffset="56"/>
-                                    </svg>
-                                </div>
-                                <div class="library-item">
-                                    <div class="library-item-icon">📚</div>
-                                    <div class="library-item-info">
-                                        <div class="library-item-title">Deep Work</div>
-                                        <div class="library-item-meta">48.392 Wörter • 3h 12m</div>
-                                    </div>
-                                    <svg class="progress-ring" viewBox="0 0 32 32">
-                                        <circle class="progress-ring-circle" cx="16" cy="16" r="12"/>
-                                        <circle class="progress-ring-progress" cx="16" cy="16" r="12" stroke-dasharray="75" stroke-dashoffset="0"/>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
+                        <img src="screenshot-library.png" alt="FlowReader Bibliothek" style="width:100%;height:100%;object-fit:cover;border-radius:34px;">
                     </div>
                 </div>
                 <div class="screen-label">Bibliothek</div>
@@ -909,7 +889,7 @@
                 <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
             </svg>
             <div>
-                <span>Jetzt im</span>
+                <span>Bald im</span>
                 <strong>App Store</strong>
             </div>
         </a>
