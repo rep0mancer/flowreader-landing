@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FlowReader — 3x schneller lesen mit RSVP</title>
-    <meta name="description" content="FlowReader ist der deutsche RSVP Speed-Reading App. Lese jeden Artikel, jedes Buch 2-3x schneller — ohne Comprehension zu verlieren. DSGVO-konform, 100% lokal.">
+    <title>FlowReader — RSVP Speed Reading App</title>
+    <meta name="description" content="Lese jeden Artikel, jedes Buch 2-3x schneller mit RSVP. PDF, ePub, URL-Import. 100% lokal & DSGVO-konform.">
+    <meta property="og:title" content="FlowReader — RSVP Speed Reading App">
+    <meta property="og:description" content="Lese jeden Artikel, jedes Buch 2-3x schneller mit RSVP.">
+    <meta property="og:image" content="og-image.png">
+    <meta property="og:type" content="website">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,15 +28,8 @@
             --success: #4ADE80;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -42,7 +39,6 @@
             overflow-x: hidden;
         }
         
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -80,28 +76,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
         }
         
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--secondary); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--primary); }
         
-        .nav-links a {
-            color: var(--secondary);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-        
-        /* Hero Section */
+        /* Hero */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -114,12 +95,7 @@
             overflow: hidden;
         }
         
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-        }
-        
+        .hero-bg { position: absolute; inset: 0; pointer-events: none; }
         .hero-glow {
             position: absolute;
             width: 600px;
@@ -146,9 +122,7 @@
             margin-bottom: 32px;
         }
         
-        .hero-badge span {
-            color: var(--accent);
-        }
+        .hero-badge span { color: var(--accent); }
         
         .hero h1 {
             font-size: clamp(40px, 8vw, 72px);
@@ -174,12 +148,7 @@
             line-height: 1.7;
         }
         
-        .hero-cta {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+        .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
         
         .btn {
             display: inline-flex;
@@ -195,157 +164,19 @@
             border: none;
         }
         
-        .btn-primary {
-            background: var(--accent);
-            color: var(--bg);
-        }
+        .btn-primary { background: var(--accent); color: var(--bg); }
+        .btn-primary:hover { background: #7D93FF; transform: translateY(-2px); }
+        .btn-secondary { background: var(--surface); color: var(--primary); border: 1px solid var(--border); }
+        .btn-secondary:hover { background: var(--surface-elevated); }
         
-        .btn-primary:hover {
-            background: #7D93FF;
-            transform: translateY(-2px);
-        }
-        
-        .btn-secondary {
-            background: var(--surface);
-            color: var(--primary);
-            border: 1px solid var(--border);
-        }
-        
-        .btn-secondary:hover {
-            background: var(--surface-elevated);
-        }
-        
-        /* RSVP Demo */
-        .rsvp-demo {
-            margin-top: 80px;
-            position: relative;
-        }
-        
-        .phone-mockup {
-            width: 280px;
-            height: 580px;
-            background: var(--surface);
-            border-radius: 44px;
-            border: 2px solid var(--border);
-            padding: 12px;
-            position: relative;
-            box-shadow: 
-                0 0 0 1px rgba(255,255,255,0.05),
-                0 40px 80px rgba(0,0,0,0.5),
-                0 0 120px var(--accent-glow);
-        }
-        
-        .phone-screen {
-            width: 100%;
-            height: 100%;
-            background: var(--bg);
-            border-radius: 34px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .phone-notch {
-            height: 28px;
-            background: var(--bg);
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            padding-bottom: 8px;
-        }
-        
-        .notch-bar {
-            width: 80px;
-            height: 4px;
-            background: var(--border);
-            border-radius: 2px;
-        }
-        
-        .rsvp-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-        }
-        
-        .rsvp-word-display {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .rsvp-word {
-            font-family: 'Inter', sans-serif;
-            font-size: 42px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-align: center;
-        }
-        
-        .rsvp-word .orp {
-            color: var(--orp);
-        }
-        
-        .rsvp-progress {
-            height: 4px;
-            background: var(--border);
-            border-radius: 2px;
-            margin: 20px 0;
-        }
-        
-        .rsvp-progress-fill {
-            height: 100%;
-            width: 45%;
-            background: var(--accent);
-            border-radius: 2px;
-        }
-        
-        .rsvp-controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            padding: 10px 0;
-        }
-        
-        .rsvp-btn {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--secondary);
-            font-size: 18px;
-        }
-        
-        .rsvp-btn-main {
-            width: 64px;
-            height: 64px;
-            background: var(--accent);
-            border: none;
-            color: var(--bg);
-            font-size: 24px;
-        }
-        
-        .rsvp-wpm {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: var(--secondary);
-            text-align: center;
-            margin-top: 12px;
-        }
-        
-        /* Features Section */
-        .features {
-            padding: 120px 24px;
+        /* Screenshots */
+        .screenshots {
+            padding: 80px 24px 120px;
             max-width: 1200px;
             margin: 0 auto;
         }
+        
+        .screenshots-header { text-align: center; margin-bottom: 64px; }
         
         .section-label {
             font-size: 13px;
@@ -367,12 +198,313 @@
             font-size: 17px;
             color: var(--secondary);
             max-width: 500px;
-            margin-bottom: 64px;
+            margin: 0 auto;
         }
+        
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        
+        .phone-mockup {
+            background: var(--surface);
+            border-radius: 44px;
+            border: 2px solid var(--border);
+            padding: 12px;
+            position: relative;
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.05), 0 40px 80px rgba(0,0,0,0.5);
+        }
+        
+        .phone-screen {
+            width: 100%;
+            aspect-ratio: 9/19.5;
+            background: var(--bg);
+            border-radius: 34px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .phone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 28px;
+            background: var(--bg);
+            border-radius: 0 0 20px 20px;
+            z-index: 10;
+        }
+        
+        .phone-notch::after {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 4px;
+            background: var(--border);
+            border-radius: 2px;
+        }
+        
+        .screen-content {
+            position: absolute;
+            inset: 0;
+            padding: 40px 16px 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Library */
+        .library-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .library-title { font-size: 22px; font-weight: 700; }
+        
+        .library-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--surface);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        
+        .library-items { display: flex; flex-direction: column; gap: 10px; flex: 1; }
+        
+        .library-item {
+            background: var(--surface);
+            border-radius: 14px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .library-item-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--accent), #8AA2FF);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        
+        .library-item-info { flex: 1; min-width: 0; }
+        
+        .library-item-title {
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .library-item-meta { font-size: 10px; color: var(--secondary); margin-top: 2px; }
+        
+        .progress-ring { width: 32px; height: 32px; flex-shrink: 0; }
+        .progress-ring-circle { fill: none; stroke: var(--border); stroke-width: 3; }
+        .progress-ring-progress { fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; transform: rotate(-90deg); transform-origin: center; }
+        
+        /* Settings */
+        .settings-header { text-align: center; margin-bottom: 12px; padding-top: 8px; }
+        .settings-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+        .settings-subtitle { font-size: 10px; color: var(--secondary); }
+        
+        .settings-section {
+            background: var(--surface);
+            border-radius: 14px;
+            padding: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .settings-section-title {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        .wpm-display { text-align: center; margin-bottom: 8px; }
+        .wpm-value { font-size: 28px; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+        .wpm-label { font-size: 10px; color: var(--secondary); }
+        
+        .slider {
+            width: 100%;
+            height: 4px;
+            background: var(--border);
+            border-radius: 2px;
+            appearance: none;
+            -webkit-appearance: none;
+            margin: 8px 0;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            background: var(--accent);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .toggle-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 0;
+        }
+        
+        .toggle-label { font-size: 12px; }
+        
+        .toggle {
+            width: 36px;
+            height: 20px;
+            background: var(--border);
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .toggle.active { background: var(--accent); }
+        
+        .toggle::after {
+            content: '';
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            background: white;
+            border-radius: 50%;
+            top: 3px;
+            left: 3px;
+            transition: transform 0.2s;
+        }
+        
+        .toggle.active::after { transform: translateX(16px); }
+        
+        .start-btn {
+            background: var(--accent);
+            color: var(--bg);
+            border: none;
+            border-radius: 12px;
+            padding: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            width: 100%;
+            margin-top: auto;
+            text-align: center;
+        }
+        
+        /* Reader */
+        .reader-screen {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding: 40px 16px 20px;
+        }
+        
+        .reader-topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: auto;
+        }
+        
+        .reader-back { font-size: 16px; color: var(--secondary); }
+        .reader-wpm-badge {
+            background: var(--accent);
+            color: var(--bg);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .reader-settings { font-size: 16px; color: var(--secondary); }
+        
+        .reader-word-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .reader-word {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        
+        .reader-word .orp { color: var(--orp); }
+        
+        .reader-progress { height: 4px; background: var(--border); border-radius: 2px; width: 100%; margin-bottom: 16px; }
+        .reader-progress-fill { height: 100%; width: 45%; background: var(--accent); border-radius: 2px; }
+        
+        .reader-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .reader-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: var(--secondary);
+        }
+        
+        .reader-btn-main {
+            width: 48px;
+            height: 48px;
+            background: var(--accent);
+            border: none;
+            color: var(--bg);
+            font-size: 16px;
+        }
+        
+        .screen-label {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 13px;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        
+        /* Features */
+        .features {
+            padding: 120px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .features-center { text-align: center; margin-bottom: 64px; }
         
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 24px;
         }
         
@@ -401,17 +533,8 @@
             margin-bottom: 20px;
         }
         
-        .feature-card h3 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-        
-        .feature-card p {
-            font-size: 14px;
-            color: var(--secondary);
-            line-height: 1.6;
-        }
+        .feature-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 10px; }
+        .feature-card p { font-size: 14px; color: var(--secondary); line-height: 1.6; }
         
         /* How it works */
         .how-it-works {
@@ -422,6 +545,7 @@
         .how-content {
             max-width: 900px;
             margin: 0 auto;
+            text-align: center;
         }
         
         .steps {
@@ -429,13 +553,10 @@
             flex-direction: column;
             gap: 32px;
             margin-top: 64px;
+            text-align: left;
         }
         
-        .step {
-            display: flex;
-            gap: 32px;
-            align-items: flex-start;
-        }
+        .step { display: flex; gap: 24px; align-items: flex-start; }
         
         .step-number {
             width: 48px;
@@ -451,130 +572,62 @@
             flex-shrink: 0;
         }
         
-        .step-content h3 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        
-        .step-content p {
-            color: var(--secondary);
-            font-size: 15px;
-            line-height: 1.6;
-        }
-        
-        /* Stats */
-        .stats {
-            padding: 80px 24px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            text-align: center;
-        }
-        
-        .stat {
-            padding: 24px;
-        }
-        
-        .stat-value {
-            font-size: 48px;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--accent), #A0B4FF);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 8px;
-        }
-        
-        .stat-label {
-            font-size: 14px;
-            color: var(--secondary);
-        }
-        
-        /* Pricing */
-        .pricing {
-            padding: 120px 24px;
-            background: var(--surface);
-        }
-        
-        .pricing-content {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .pricing-card {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 48px;
-            margin-top: 48px;
-        }
-        
-        .pricing-price {
-            font-size: 56px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-        
-        .pricing-price span {
-            font-size: 18px;
-            color: var(--secondary);
-            font-weight: 400;
-        }
-        
-        .pricing-tagline {
-            color: var(--secondary);
-            margin-bottom: 32px;
-        }
-        
-        .pricing-features {
-            list-style: none;
-            text-align: left;
-            margin-bottom: 32px;
-        }
-        
-        .pricing-features li {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border);
-            font-size: 15px;
-        }
-        
-        .pricing-features li:last-child {
-            border-bottom: none;
-        }
-        
-        .check {
-            color: var(--success);
-            font-weight: 600;
-        }
+        .step-content h3 { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+        .step-content p { color: var(--secondary); font-size: 15px; line-height: 1.6; }
         
         /* CTA */
         .cta-section {
             padding: 120px 24px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.4;
         }
         
         .cta-title {
-            font-size: clamp(32px, 6vw, 48px);
+            font-size: clamp(28px, 5vw, 42px);
             font-weight: 700;
             letter-spacing: -1px;
             margin-bottom: 16px;
+            position: relative;
         }
         
         .cta-subtitle {
             font-size: 18px;
             color: var(--secondary);
             margin-bottom: 40px;
+            position: relative;
         }
+        
+        .app-store-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: var(--primary);
+            color: var(--bg);
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            position: relative;
+        }
+        
+        .app-store-badge:hover { transform: translateY(-2px); opacity: 0.9; }
+        
+        .app-store-badge span { font-size: 11px; font-weight: 400; display: block; }
+        .app-store-badge strong { font-size: 18px; display: block; }
         
         /* Footer */
         footer {
@@ -585,55 +638,8 @@
             font-size: 13px;
         }
         
-        footer p {
-            margin-bottom: 8px;
-        }
+        footer p { margin-bottom: 8px; }
         
-        /* Animations */
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-        
-        .float {
-            animation: float 4s ease-in-out infinite;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero h1 {
-                letter-spacing: -1px;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .step {
-                flex-direction: column;
-                gap: 16px;
-            }
-            
-            .phone-mockup {
-                width: 240px;
-                height: 500px;
-            }
-            
-            .rsvp-word {
-                font-size: 32px;
-            }
-        }
-        
-        /* Gradient Orbs */
         .orb {
             position: absolute;
             border-radius: 50%;
@@ -641,20 +647,20 @@
             pointer-events: none;
         }
         
-        .orb-1 {
-            width: 400px;
-            height: 400px;
-            background: rgba(107, 138, 255, 0.15);
-            top: 10%;
-            left: -10%;
+        .orb-1 { width: 400px; height: 400px; background: rgba(107, 138, 255, 0.15); top: 10%; left: -10%; }
+        .orb-2 { width: 300px; height: 300px; background: rgba(255, 107, 107, 0.1); bottom: 20%; right: -5%; }
+        
+        @media (max-width: 900px) {
+            .screenshots-grid {
+                grid-template-columns: 1fr;
+                max-width: 280px;
+                margin: 0 auto;
+            }
         }
         
-        .orb-2 {
-            width: 300px;
-            height: 300px;
-            background: rgba(255, 107, 107, 0.1);
-            bottom: 20%;
-            right: -5%;
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { letter-spacing: -1px; }
         }
     </style>
 </head>
@@ -666,9 +672,9 @@
                 FlowReader
             </div>
             <ul class="nav-links">
+                <li><a href="#screenshots">App</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#how-it-works">So funktioniert's</a></li>
-                <li><a href="#pricing">Preise</a></li>
             </ul>
         </div>
     </nav>
@@ -680,62 +686,153 @@
             <div class="orb orb-2"></div>
         </div>
         
-        <div class="hero-badge">
-            🚀 <span>RSVP</span> — Rapid Serial Visual Presentation
-        </div>
+        <div class="hero-badge">⚡ <span>RSVP</span> — Rapid Serial Visual Presentation</div>
         
-        <h1>
-            Lies <span class="accent">3x schneller</span><br>
-            ohne etwas zu verpassen
-        </h1>
+        <h1>Lies <span class="accent">2-3x schneller</span><br>ohne etwas zu verpassen</h1>
         
         <p class="hero-subtitle">
-            FlowReader zeigt Dir Wörter einzeln mit Optimaler Erkennungspunkt-Highlight. 
-            Keine Augenbewegung. Keine Ablenkung. Volle Konzentration.
+            Wörter erscheinen einzeln mit Optimaler Erkennungspunkt-Markierung. 
+            Keine Augenbewegung. Keine Ablenkung. Volle Konzentration auf das Wesentliche.
         </p>
         
         <div class="hero-cta">
-            <a href="#pricing" class="btn btn-primary">
-                Kostenlos starten
-            </a>
-            <a href="#how-it-works" class="btn btn-secondary">
-                Mehr erfahren
-            </a>
+            <a href="#screenshots" class="btn btn-primary">App ansehen</a>
+            <a href="#how-it-works" class="btn btn-secondary">Mehr erfahren</a>
+        </div>
+    </section>
+    
+    <section class="screenshots" id="screenshots">
+        <div class="screenshots-header">
+            <div class="section-label">Die App</div>
+            <h2 class="section-title">Einfach. Elegant. Schnell.</h2>
         </div>
         
-        <div class="rsvp-demo float">
-            <div class="phone-mockup">
-                <div class="phone-screen">
-                    <div class="phone-notch">
-                        <div class="notch-bar"></div>
-                    </div>
-                    <div class="rsvp-content">
-                        <div class="rsvp-word-display">
-                            <div class="rsvp-word">
-                                Lern<span class="orp">e</span>
+        <div class="screenshots-grid">
+            <!-- Library -->
+            <div>
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="phone-notch"></div>
+                        <div class="screen-content">
+                            <div class="library-header">
+                                <div class="library-title">Bibliothek</div>
+                                <div class="library-icon">⚙️</div>
+                            </div>
+                            <div class="library-items">
+                                <div class="library-item">
+                                    <div class="library-item-icon">📄</div>
+                                    <div class="library-item-info">
+                                        <div class="library-item-title">Der Prozess</div>
+                                        <div class="library-item-meta">2.847 Wörter • 12 Min</div>
+                                    </div>
+                                    <svg class="progress-ring" viewBox="0 0 32 32">
+                                        <circle class="progress-ring-circle" cx="16" cy="16" r="12"/>
+                                        <circle class="progress-ring-progress" cx="16" cy="16" r="12" stroke-dasharray="75" stroke-dashoffset="19"/>
+                                    </svg>
+                                </div>
+                                <div class="library-item">
+                                    <div class="library-item-icon">🔗</div>
+                                    <div class="library-item-info">
+                                        <div class="library-item-title">AI-Trends 2026</div>
+                                        <div class="library-item-meta">1.203 Wörter • 5 Min</div>
+                                    </div>
+                                    <svg class="progress-ring" viewBox="0 0 32 32">
+                                        <circle class="progress-ring-circle" cx="16" cy="16" r="12"/>
+                                        <circle class="progress-ring-progress" cx="16" cy="16" r="12" stroke-dasharray="75" stroke-dashoffset="56"/>
+                                    </svg>
+                                </div>
+                                <div class="library-item">
+                                    <div class="library-item-icon">📚</div>
+                                    <div class="library-item-info">
+                                        <div class="library-item-title">Deep Work</div>
+                                        <div class="library-item-meta">48.392 Wörter • 3h 12m</div>
+                                    </div>
+                                    <svg class="progress-ring" viewBox="0 0 32 32">
+                                        <circle class="progress-ring-circle" cx="16" cy="16" r="12"/>
+                                        <circle class="progress-ring-progress" cx="16" cy="16" r="12" stroke-dasharray="75" stroke-dashoffset="0"/>
+                                    </svg>
+                                </div>
                             </div>
                         </div>
-                        <div class="rsvp-progress">
-                            <div class="rsvp-progress-fill"></div>
-                        </div>
-                        <div class="rsvp-controls">
-                            <div class="rsvp-btn">⏪</div>
-                            <div class="rsvp-btn rsvp-btn-main">▶</div>
-                            <div class="rsvp-btn">⏩</div>
-                        </div>
-                        <div class="rsvp-wpm">300 WPM</div>
                     </div>
                 </div>
+                <div class="screen-label">Bibliothek</div>
+            </div>
+            
+            <!-- Settings -->
+            <div>
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="phone-notch"></div>
+                        <div class="screen-content">
+                            <div class="settings-header">
+                                <div class="settings-title">Lesen starten</div>
+                                <div class="settings-subtitle">Der Prozess • 2.847 Wörter</div>
+                            </div>
+                            <div class="settings-section">
+                                <div class="settings-section-title">Geschwindigkeit</div>
+                                <div class="wpm-display">
+                                    <div class="wpm-value">450</div>
+                                    <div class="wpm-label">Wörter pro Minute</div>
+                                </div>
+                                <input type="range" class="slider" min="100" max="1200" value="450">
+                            </div>
+                            <div class="settings-section">
+                                <div class="settings-section-title">Anzeige</div>
+                                <div class="toggle-row">
+                                    <span class="toggle-label">ORP-Highlight</span>
+                                    <div class="toggle active"></div>
+                                </div>
+                                <div class="toggle-row">
+                                    <span class="toggle-label">Fett</span>
+                                    <div class="toggle active"></div>
+                                </div>
+                            </div>
+                            <div class="start-btn">▶ Lesen starten</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="screen-label">Einstellungen</div>
+            </div>
+            
+            <!-- Reader -->
+            <div>
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="phone-notch"></div>
+                        <div class="reader-screen">
+                            <div class="reader-topbar">
+                                <div class="reader-back">←</div>
+                                <div class="reader-wpm-badge">450 WPM</div>
+                                <div class="reader-settings">⚙️</div>
+                            </div>
+                            <div class="reader-word-area">
+                                <div class="reader-word">Konzent<span class="orp">r</span>ation</div>
+                            </div>
+                            <div>
+                                <div class="reader-progress">
+                                    <div class="reader-progress-fill"></div>
+                                </div>
+                                <div class="reader-controls">
+                                    <div class="reader-btn">⏪</div>
+                                    <div class="reader-btn reader-btn-main">▶</div>
+                                    <div class="reader-btn">⏩</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="screen-label">RSVP-Leser</div>
             </div>
         </div>
     </section>
     
     <section class="features" id="features">
-        <div class="section-label">Features</div>
-        <h2 class="section-title">Alles was Du brauchst</h2>
-        <p class="section-subtitle">
-            Ein professionelles Speed-Reading Tool, das auf Deutsch funktioniert und Deine Daten privat hält.
-        </p>
+        <div class="features-center">
+            <div class="section-label">Features</div>
+            <h2 class="section-title">Alles was Du brauchst</h2>
+            <p class="section-subtitle">Professionelles Speed-Reading, das auf Deutsch funktioniert und Deine Daten privat hält.</p>
+        </div>
         
         <div class="features-grid">
             <div class="feature-card">
@@ -743,31 +840,26 @@
                 <h3>100 – 1200 WPM</h3>
                 <p>Stelle Deine Lesegeschwindigkeit ein und steigere sie automatisch mit dem Auto-Speed-Up Modus.</p>
             </div>
-            
             <div class="feature-card">
                 <div class="feature-icon">🎯</div>
                 <h3>ORP-Highlight</h3>
                 <p>Der optimale Erkennungspunkt wird farblich hervorgehoben — für maximales Verständnis beim Schnelllesen.</p>
             </div>
-            
             <div class="feature-card">
                 <div class="feature-icon">📄</div>
                 <h3>PDF & ePub Import</h3>
                 <p>Importiere Bücher und Dokumente direkt. PDF und ePub werden automatisch in lesbaren Text umgewandelt.</p>
             </div>
-            
             <div class="feature-card">
                 <div class="feature-icon">🔗</div>
                 <h3>URL Import</h3>
-                <p>Füge einen Artikel-Link ein und FlowReader extrahiert den Text automatisch — ohne Werbung oder Ablenkung.</p>
+                <p>Füge einen Artikel-Link ein und FlowReader extrahiert den Text automatisch — ohne Werbung.</p>
             </div>
-            
             <div class="feature-card">
                 <div class="feature-icon">🔒</div>
                 <h3>100% Privat</h3>
-                <p>Alle Daten bleiben auf Deinem Gerät. Keine Cloud, keine Tracking, vollständig DSGVO-konform.</p>
+                <p>Alle Daten bleiben auf Deinem Gerät. Keine Cloud, kein Tracking, vollständig DSGVO-konform.</p>
             </div>
-            
             <div class="feature-card">
                 <div class="feature-icon">📊</div>
                 <h3>Fortschritt gespeichert</h3>
@@ -789,76 +881,37 @@
                         <p>Füge einen Artikel-Link ein, füge Text direkt ein, oder importiere eine PDF- oder ePub-Datei. Innerhalb von Sekunden ist alles bereit.</p>
                     </div>
                 </div>
-                
                 <div class="step">
                     <div class="step-number">2</div>
                     <div class="step-content">
                         <h3>Geschwindigkeit wählen</h3>
-                        <p>Stelle Deine WPM (Wörter pro Minute) ein — von entspannten 100 bis zu herausfordernden 1200. Der Auto-Speed-Up Modus steigert Dein Tempo automatisch.</p>
+                        <p>Stelle Deine WPM ein — von entspannten 100 bis zu herausfordernden 1200. Der Auto-Speed-Up Modus steigert Dein Tempo automatisch.</p>
                     </div>
                 </div>
-                
                 <div class="step">
                     <div class="step-number">3</div>
                     <div class="step-content">
                         <h3>Lesen & Fortschritte sehen</h3>
-                        <p>Jedes Wort erscheint fokussiert im Zentrum. Follow dem Highlight, halte den Rhythmus. Nach dem Lesen siehst Du Deine Stats: Wörter, Zeit, durchschnittliche WPM.</p>
+                        <p>Jedes Wort erscheint fokussiert im Zentrum. Nach dem Lesen siehst Du Deine Stats: Wörter, Zeit, durchschnittliche WPM.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    
-    <section class="stats">
-        <div class="stats-grid">
-            <div class="stat">
-                <div class="stat-value">2-3x</div>
-                <div class="stat-label">Schneller lesen</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value">100%</div>
-                <div class="stat-label">Privat & lokal</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value">∞</div>
-                <div class="stat-label">Texte importieren</div>
-            </div>
-        </div>
-    </section>
-    
-    <section class="pricing" id="pricing">
-        <div class="pricing-content">
-            <div class="section-label">Preise</div>
-            <h2 class="section-title">Kostenlos für immer</h2>
-            <p class="section-subtitle" style="margin: 0 auto 0;">
-                FlowReader ist komplett kostenlos. Keine In-App-Käufe, keine Abos, keine versteckten Kosten.
-            </p>
-            
-            <div class="pricing-card">
-                <div class="pricing-price">€0 <span>/ für immer</span></div>
-                <p class="pricing-tagline">Alle Features inklusive</p>
-                
-                <ul class="pricing-features">
-                    <li><span class="check">✓</span> Unbegrenzter RSVP-Lesemodus</li>
-                    <li><span class="check">✓</span> PDF & ePub Import</li>
-                    <li><span class="check">✓</span> URL-Artikel-Extraktion</li>
-                    <li><span class="check">✓</span> Auto Speed-Up Modus</li>
-                    <li><span class="check">✓</span> Lese-Fortschritt gespeichert</li>
-                    <li><span class="check">✓</span> 100% DSGVO-konform</li>
-                </ul>
-                
-                <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">
-                    App Store (bald verfügbar)
-                </a>
             </div>
         </div>
     </section>
     
     <section class="cta-section">
+        <div class="cta-glow"></div>
         <h2 class="cta-title">Bereit schneller zu lesen?</h2>
-        <p class="cta-subtitle">Lade FlowReader herunter und teste es mit Deinem nächsten Artikel.</p>
-        <a href="#pricing" class="btn btn-primary">
-            Kostenlos starten
+        <p class="cta-subtitle">Lade FlowReader aus dem App Store und teste es mit Deinem nächsten Artikel.</p>
+        
+        <a href="#" class="app-store-badge">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+            <div>
+                <span>Jetzt im</span>
+                <strong>App Store</strong>
+            </div>
         </a>
     </section>
     
