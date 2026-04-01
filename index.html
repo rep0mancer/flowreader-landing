@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FlowReader — RSVP Speed Reading App</title>
-    <meta name="description" content="Lese jeden Artikel, jedes Buch 2-3x schneller mit RSVP. PDF, ePub, URL-Import. 100% lokal & DSGVO-konform.">
+    <meta name="description" content="Lese jeden Artikel, jedes Buch 2-3x schneller mit RSVP. PDF, ePub, URL-Import für iOS.">
     <meta property="og:title" content="FlowReader — RSVP Speed Reading App">
     <meta property="og:description" content="Lese jeden Artikel, jedes Buch 2-3x schneller mit RSVP.">
     <meta property="og:image" content="og-image.png">
@@ -150,15 +150,23 @@
         
         .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
         
-        .hero-screenshot {
-            margin-top: 60px;
+        .hero-video {
+            margin-top: 48px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
         }
         
-        .hero-screenshot .phone-mockup {
+        .hero-video video {
             width: 260px;
-            box-shadow: 0 0 0 1px rgba(255,255,255,0.05), 0 40px 80px rgba(0,0,0,0.5), 0 0 80px var(--accent-glow);
+            border-radius: 24px;
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.05), 0 20px 60px rgba(0,0,0,0.5), 0 0 60px var(--accent-glow);
+        }
+        
+        .video-caption {
+            font-size: 13px;
+            color: var(--secondary);
         }
         
         .btn {
@@ -710,6 +718,13 @@
             <a href="#screenshots" class="btn btn-primary">App ansehen</a>
             <a href="#how-it-works" class="btn btn-secondary">Mehr erfahren</a>
         </div>
+        
+        <div class="hero-video">
+            <video autoplay muted loop playsinline controls>
+                <source src="flowreader-demo.mp4" type="video/mp4">
+            </video>
+            <p class="video-caption">RSVP-Leser in Aktion — 400 → 650 WPM</p>
+        </div>
     </section>
     
     <section class="screenshots" id="screenshots">
@@ -784,8 +799,8 @@
             </div>
             <div class="feature-card">
                 <div class="feature-icon">🔒</div>
-                <h3>100% Privat</h3>
-                <p>Alle Daten bleiben auf Deinem Gerät. Keine Cloud, kein Tracking, vollständig DSGVO-konform.</p>
+                <h3>Daten auf Deinem Gerät</h3>
+                <p>Alle Daten bleiben lokal. Kein Tracking, keine Cloud-Sync. Für später geplant.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">📊</div>
@@ -844,7 +859,7 @@
     
     <footer>
         <p>FlowReader — RSVP Speed Reading für den deutschsprachigen Raum</p>
-        <p>100% lokal • DSGVO-konform • Keine Daten in der Cloud</p>
+        <p>FlowReader — RSVP Speed Reading für iOS</p>
     </footer>
 </body>
 </html>
